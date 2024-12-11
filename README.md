@@ -3,10 +3,10 @@
 This project is the backend for the Contractor Management System. It is built using:
 
 - TypeScript
-- Node.js
-- Express
 - MySQL
-- Sequelize ORM
+- Express
+- Node.js
+- Sequelize
 
 ## Models
 
@@ -48,7 +48,7 @@ This project is the backend for the Contractor Management System. It is built us
 - Add users.
 - Delete users.
 - Edit users.
-- Get all users.
+- Get users.
 - Add contractors.
 - Edit contractors.
 - Delete contractors.
@@ -57,7 +57,7 @@ This project is the backend for the Contractor Management System. It is built us
 
 ### 2. Auth Controller
 - Login.
-- Get user details.
+- Get user.
 - Verify token.
 - Logout.
 
@@ -72,11 +72,9 @@ This project is the backend for the Contractor Management System. It is built us
 - Get finished renews.
 
 ### 4. Tester Controller
-- Get testers' full names and IDs.
+- Get testers' `fullName` and `id`.
 
 ## Setup Instructions
-
-To toggle the project:
 
 1. Clone the repository:
    ```bash
@@ -90,16 +88,16 @@ To toggle the project:
 
 3. Create a `.env` file and add the following:
    ```env
-   PORT=YOUR_PORT_NUMBER
-   FRONTEND_URL=http://localhost:YOUR_FRONTEND_PORT
-   JWT_SECRET_KEY=YOUR_SECRET_KEY
-   JWT_EXPIRES=YOUR_EXPIRATION_TIME
-   COOKIE_EXPIRE=YOUR_COOKIE_EXPIRATION_TIME
-   HOST=YOUR_DATABASE_HOST
-   PASSWORD=YOUR_DATABASE_PASSWORD
-   USER=YOUR_DATABASE_USER
-   DATABASE=YOUR_DATABASE_NAME
-   SALT=YOUR_SALT_VALUE
+   PORT=
+   FRONTEND_URL=
+   JWT_SECRET_KEY=
+   JWT_EXPIRES=
+   COOKIE_EXPIRE=
+   HOST=
+   PASSWORD=
+   USER=
+   DATABASE=
+   SALT=
    ```
 
 4. Build the project:
@@ -114,21 +112,31 @@ To toggle the project:
 
 6. Follow the frontend README file for further documentation and setup instructions.
 
-7. Navigate to `src/index.ts`:
+7. Navigate to the backend source directory:
    ```bash
-   cd src
-   ```
-   Update the path to the frontend's `dist/index.html` file in line 40.
-
-8. Start the server:
-   ```bash
-   npm start
+   cd ~/backend-repo/src
    ```
 
-9. Open the project in your browser:
-   ```
-   http://localhost:PORT
-   ```
+8. Edit the path to the frontend `dist/index.html` file in `index.ts` (line 40).
+
+9. Go to MySQL environment.
+
+10. In your database, run the following command:
+    ```sql
+    INSERT INTO users (fullName, password, mobileNumber, role, createdAt, updatedAt) 
+    VALUES ('Admin', '$2a$10$Mg30BfcdCGAsuOepJasjr.VLtC3jZuTuRxqIX.O2g3jhI9xePzy06', '123', 'admin', NOW(), NOW());
+    ```
+    **Note:** The password here is `123`.
+
+11. Start the project:
+    ```bash
+    npm start
+    ```
+
+12. Open your browser and navigate to:
+    ```
+    http://localhost:PORT
+    ```
 
 ---
 
